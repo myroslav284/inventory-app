@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyopQkL65l1C4l3/DuQhbo5ktD7VWPI..."
+          crossorigin="anonymous">
+    <title>List Categories</title>
+</head>
+<body>
+<div class="container mt-5">
+    <a class="font-weight-bold text-primary border-bottom border-primary" th:href="@{/}">Main Page</a>
+    <h2>List of Categories</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Replace this part with Thymeleaf iteration -->
+        <tr th:each="category : ${listCategories}">
+            <td th:text="${category.id}"></td>
+            <td th:text="${category.name}"></td>
+            <td>
+                <a th:href="@{'categories/edit/' + ${category.id}}">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{'categories/delete/' + ${category.id}}">Delete</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
